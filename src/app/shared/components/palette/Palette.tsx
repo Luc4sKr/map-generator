@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -11,9 +11,21 @@ import style from "./Palette.module.css";
 function Palette() {
     const [value, setValue] = React.useState('1');
 
+    const [listOfFloors, setListOfFloors] = useState<string[]>([]);
+
+    useEffect(() => {
+        let temp: string[] = [];
+        for (let i = 1; i <= 8; i++) {
+            temp.push(`floor_${i}`)
+        }
+
+        setListOfFloors(temp);
+    }, []);
+
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
+
     return (
         <>
             <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -27,7 +39,13 @@ function Palette() {
                     </Box>
                     <TabPanel value="1">
                         <div className={style.container}>
-                            <input type="file" />
+                            {listOfFloors.map((floor) => (
+                                <div
+                                    className={style.item}
+                                    style={{ backgroundImage: `url("/tiles/floor/${floor}.png")` }}
+                                >
+                                </div>
+                            ))}
                         </div>
                     </TabPanel>
                     <TabPanel value="2">Item Two</TabPanel>
