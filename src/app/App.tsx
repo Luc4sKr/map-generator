@@ -1,6 +1,8 @@
 import { useContext } from "react";
-import Grid from "./shared/components/grid/Grid";
 import { GridContext } from "./shared/context/GridContext";
+
+import Grid from "./shared/components/grid/Grid";
+import Palette from "./shared/components/palette/Palette";
 
 import style from "./App.module.css";
 
@@ -28,10 +30,8 @@ function App() {
 				<section className={style.gridContainer}>
 					<Grid />
 				</section>
-				<section>
-					<div>
-						<p>teste</p>
-					</div>
+				<section className={style.paletteContainer}>
+					<Palette />
 				</section>
 			</main>
 			<input type="number" onChange={handleWidth} />

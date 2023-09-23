@@ -1,8 +1,12 @@
 .mainApp {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
+    display: flex;
+    flex-direction: row;
 }
 
 .gridContainer {
-    background-color: rebeccapurple;
+    width: 80%;
+}
+
+.paletteContainer {
+    width: auto;
 }
