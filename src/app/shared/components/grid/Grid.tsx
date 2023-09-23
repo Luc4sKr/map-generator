@@ -11,7 +11,7 @@ function Grid() {
 
     useEffect(() => {
         gridManager();
-    }, [gridWidth]);
+    }, [gridWidth, gridHeight]);
 
     const gridManager = () => {
         let temp: number[][] = [];
@@ -42,9 +42,6 @@ function Grid() {
 
     return (
         <>
-            <h1>Grid</h1>
-            <p>Width: {gridWidth}, Height: {gridHeight}</p>
-
             <div className="grid-container">
                 {grid.map((row, rowIndex) => (
                     <div key={rowIndex} className="grid-row">

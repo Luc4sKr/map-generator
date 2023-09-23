@@ -1,4 +1,12 @@
+.grid-container {
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+    background-color: red;
+}
+
 .grid-row {
+    width: calc(50px * 50);
     display: flex;
 }
 

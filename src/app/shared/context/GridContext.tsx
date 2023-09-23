@@ -25,15 +25,18 @@ export const GridProvider: React.FC<IGridProviderProps> = ({ children }) => {
         setGridHeight(height);
     }
 
-    const contextValue: IGridContextData = {
+    /*const contextValue: IGridContextData = {
         gridWidth,
         gridHeight,
         handleGridWidth,
         handleGridHeight,
-    };
+    };*/
 
     return (
-        <GridContext.Provider value={contextValue}>
+        <GridContext.Provider value={{
+            gridWidth, handleGridWidth,
+            gridHeight, handleGridHeight,
+        }}>
             {children}
         </GridContext.Provider>
     )
