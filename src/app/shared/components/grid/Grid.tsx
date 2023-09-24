@@ -1,7 +1,7 @@
 import { MouseEvent, useEffect, useState, useContext } from "react";
 import { GridContext } from "../../context/GridContext";
 
-import "./style.css";
+import style from "./Grid.module.css";
 
 function Grid() {
     const [grid, setGrid] = useState<number[][]>([]);
@@ -43,13 +43,13 @@ function Grid() {
 
     return (
         <>
-            <div className="grid-container">
+            <div className={style.gridContainer}>
                 {grid.map((row, rowIndex) => (
-                    <div key={rowIndex} className="grid-row">
+                    <div key={rowIndex} className={style.gridRow}>
                         {row.map((cell, colIndex) => (
                             <div
                                 key={colIndex}
-                                className="grid-col"
+                                className={style.gridCol}
                                 onMouseDown={handleMouseDown}
                                 onMouseUp={handleMouseUp}
                                 onMouseMove={addColor}

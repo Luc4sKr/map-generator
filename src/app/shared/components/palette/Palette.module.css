@@ -1,10 +1,12 @@
+.palette {
+    display: block;
+    height: 100%;
+    background-color: var(--palette-background-color);
+}
+
 .tilesContainer {
     display: grid;
     grid-template-columns: repeat(5, 50px);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-}
-
-.palette {
-    display: block;
 }

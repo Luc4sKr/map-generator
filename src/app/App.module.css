@@ -8,10 +8,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #393053;
 }
 
 .paletteContainer {
     width: var(--palette-container-width);
+    display: block;
+}
+
+.inputs {
+    width: var(--grid-container-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputsFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputContainer {
+    margin: 0 10px;
+}
+
+.gridSizeInput {
     display: block;
 }

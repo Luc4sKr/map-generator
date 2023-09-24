@@ -1,4 +1,4 @@
-.grid-container {
+.gridContainer {
     width: auto;
     height: 600px;
     overflow: auto;
@@ -9,11 +9,11 @@
     justify-content: center;
 }
 
-.grid-row {
+.gridRow {
     display: flex;
 }
 
-.grid-col {
+.gridCol {
     width: 50px;
     height: 50px;
     border: 1px solid #000;
