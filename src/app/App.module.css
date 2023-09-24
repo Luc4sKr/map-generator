@@ -1,12 +1,17 @@
 .mainApp {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
 }
 
 .gridContainer {
-    width: 80%;
+    width: var(--grid-container-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #393053;
 }
 
 .paletteContainer {
-    width: auto;
+    width: var(--palette-container-width);
+    display: block;
 }

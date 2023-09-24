@@ -6,6 +6,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
 import { TabList } from '@mui/lab';
 
+import { Tile } from '../tile/Tile';
+
 import style from "./Palette.module.css";
 
 function Palette() {
@@ -14,13 +16,17 @@ function Palette() {
     const [listOfFloors, setListOfFloors] = useState<string[]>([]);
 
     useEffect(() => {
+        loadFloorsTiles();
+    }, []);
+
+    const loadFloorsTiles = () => {
         let temp: string[] = [];
         for (let i = 1; i <= 8; i++) {
             temp.push(`floor_${i}`)
         }
 
         setListOfFloors(temp);
-    }, []);
+    }
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
@@ -28,7 +34,7 @@ function Palette() {
 
     return (
         <>
-            <Box sx={{ width: '100%', typography: 'body1' }}>
+            <Box className={style.palette} sx={{ width: "100%" }}>
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -38,13 +44,9 @@ function Palette() {
                         </TabList>
                     </Box>
                     <TabPanel value="1">
-                        <div className={style.container}>
+                        <div className={style.tilesContainer}>
                             {listOfFloors.map((floor) => (
-                                <div
-                                    className={style.item}
-                                    style={{ backgroundImage: `url("/tiles/floor/${floor}.png")` }}
-                                >
-                                </div>
+                                <Tile key={floor} path="/tiles/floor" tile={floor} />
                             ))}
                         </div>
                     </TabPanel>
