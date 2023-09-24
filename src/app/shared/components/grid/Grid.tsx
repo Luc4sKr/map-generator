@@ -3,6 +3,11 @@ import { GridContext } from "../../context/GridContext";
 
 import style from "./Grid.module.css";
 
+const GridColor = {
+    black: 0,
+    white: 1
+}
+
 function Grid() {
     const [grid, setGrid] = useState<number[][]>([]);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -49,7 +54,7 @@ function Grid() {
                         {row.map((cell, colIndex) => (
                             <div
                                 key={colIndex}
-                                className={style.gridCol}
+                                className={`${style.gridCol} ${rowIndex % 2 == 0 ? (colIndex % 2 == 0 ? style.black : style.white) : (colIndex % 2 != 0 ? style.black : style.white)}`}
                                 onMouseDown={handleMouseDown}
                                 onMouseUp={handleMouseUp}
                                 onMouseMove={addColor}

@@ -9,6 +9,7 @@ import { TabList } from '@mui/lab';
 import { Tile } from '../tile/Tile';
 
 import style from "./Palette.module.css";
+import { TabStyle } from "./TabStyle";
 
 function Palette() {
     const [value, setValue] = React.useState('1');
@@ -34,13 +35,13 @@ function Palette() {
 
     return (
         <>
-            <Box className={style.palette} sx={{ width: "100%" }}>
+            <Box className={style.palette}>
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <TabList onChange={handleChange}>
-                            <Tab label="Item One" value="1" />
-                            <Tab label="Item Two" value="2" />
-                            <Tab label="Item Three" value="3" />
+                            <Tab label="Floor" value="1" style={TabStyle}/>
+                            <Tab label="Item Two" value="2" style={TabStyle}/>
+                            <Tab label="Item Three" value="3" style={TabStyle}/>
                         </TabList>
                     </Box>
                     <TabPanel value="1">

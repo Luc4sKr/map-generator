@@ -6,6 +6,7 @@
 	--text-color: #ffffff;
 	--header-color: #2f2f2f;
 	--background-color: #222222;
+	--grid-background-color: #222222;
 	--palette-background-color: #191919;
 }
 
@@ -20,3 +21,4 @@
 body {
 	background-color: var(--background-color);
 }
+
