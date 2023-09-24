@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import style from "./Tile.module.css";
+import { GridContext } from "../../context/GridContext";
 
 interface TileProps {
     path: string;
@@ -10,14 +11,20 @@ interface TileProps {
 export const Tile = ({ path, tile }: TileProps) => {
     const [filePath, setFilePath] = useState("");
 
+    const { setSelectedTile } = useContext(GridContext);
+
     useEffect(() => {
-        setFilePath(`url(${path}/${tile}.png)`);
+        setFilePath(`${path}/${tile}.png`);
     }, []);
 
     return (
         <div
             className={style.tile}
-            style={{ backgroundImage: filePath }}
+            style={{ backgroundImage: `url(${filePath})`}}
+            onClick={() => {
+                setSelectedTile(filePath);
+                console.log(filePath)
+            }}
         >
         </div>
     )

@@ -7,7 +7,7 @@ import Palette from "./shared/components/palette/Palette";
 import style from "./App.module.css";
 
 function App() {
-	const { gridWidth, gridHeight, handleGridWidth, handleGridHeight } = useContext(GridContext);
+	const { handleGridWidth, handleGridHeight } = useContext(GridContext);
 
 	function handleWidth(e: React.ChangeEvent<HTMLInputElement>) {
 		let val = parseInt(e.target.value)

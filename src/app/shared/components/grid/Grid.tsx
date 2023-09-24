@@ -7,7 +7,7 @@ function Grid() {
     const [grid, setGrid] = useState<number[][]>([]);
     const [isMouseDown, setIsMouseDown] = useState(false);
 
-    const { gridWidth, gridHeight } = useContext(GridContext);
+    const { gridWidth, gridHeight, selectedTile } = useContext(GridContext);
 
     useEffect(() => {
         gridManager();
@@ -36,7 +36,8 @@ function Grid() {
     const addColor = (event: MouseEvent<HTMLDivElement>): void => {
         if (isMouseDown) {
             const clickedElement = event.target as HTMLDivElement;
-            clickedElement.style.backgroundColor = 'blue';
+            console.log(selectedTile)
+            clickedElement.style.backgroundImage = `url(${selectedTile})`;
         }
     }
 
