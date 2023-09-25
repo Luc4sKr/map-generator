@@ -3,11 +3,6 @@ import { GridContext } from "../../context/GridContext";
 
 import style from "./Grid.module.css";
 
-const GridColor = {
-    black: 0,
-    white: 1
-}
-
 function Grid() {
     const [grid, setGrid] = useState<number[][]>([]);
     const [isMouseDown, setIsMouseDown] = useState(false);
@@ -22,8 +17,17 @@ function Grid() {
         let temp: number[][] = [];
         for (let row = 0; row < gridHeight; row++) {
             temp[row] = [];
+
+            if (grid[row]) {
+                temp[row] = grid[row].slice(0, gridWidth)
+            }
+
             for (let col = 0; col < gridWidth; col++) {
                 temp[row][col] = 0;
+
+                if (grid[row]) {
+                    temp[row][col] = grid[row][col]
+                }
             }
         }
 
@@ -31,6 +35,7 @@ function Grid() {
     }
 
     const handleMouseDown = () => {
+        console.log("down")
         setIsMouseDown(true);
     };
 
@@ -38,10 +43,9 @@ function Grid() {
         setIsMouseDown(false);
     };
 
-    const addColor = (event: MouseEvent<HTMLDivElement>): void => {
-        if (isMouseDown) {
+    const addTile = (event: MouseEvent<HTMLDivElement>): void => {
+        if (isMouseDown || event.type == "click") {
             const clickedElement = event.target as HTMLDivElement;
-            console.log(selectedTile)
             clickedElement.style.backgroundImage = `url(${selectedTile})`;
         }
     }
@@ -57,7 +61,8 @@ function Grid() {
                                 className={`${style.gridCol} ${rowIndex % 2 == 0 ? (colIndex % 2 == 0 ? style.black : style.white) : (colIndex % 2 != 0 ? style.black : style.white)}`}
                                 onMouseDown={handleMouseDown}
                                 onMouseUp={handleMouseUp}
-                                onMouseMove={addColor}
+                                onMouseMove={addTile}
+                                onClick={addTile}
                             ></div>
                         ))}
                     </div>

@@ -13,10 +13,6 @@ import style from "./App.module.css";
 function App() {
 	const { gridWidth, gridHeight, handleGridWidth, handleGridHeight } = useContext(GridContext);
 
-	useEffect(() => {
-		console.log(gridWidth)
-	})
-
 	function handleWidth(e: React.ChangeEvent<HTMLInputElement>) {
 		let val = parseInt(e.target.value)
 		if (val <= 50) {
@@ -54,7 +50,6 @@ function App() {
 							onChange={handleWidth}
 							value={gridWidth}
 						/>
-
 					</div>
 					<div className={style.inputContainer}>
 						<TextField
@@ -66,7 +61,7 @@ function App() {
 							value={gridHeight}
 						/>
 					</div>
-					<Button color="primary" variant="outlined" style={{position: "absolute", right: 350}}>Export</Button>
+					<Button color="primary" variant="outlined" style={{ position: "absolute", right: 350 }}>Export</Button>
 				</div>
 			</section>
 		</>
